@@ -66,6 +66,3 @@ def main():
 
         st.markdown('### Nilai Koefisien Korelasi (r):')
         st.write(f'{regression_info["r_value"]:.4f}')
-
-if __name__ == '__main__':
-    main()
