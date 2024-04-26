@@ -1,8 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from matplotlib import pyplot as plt
-from sklearn.linear_model import LinearRegression
 import io
 
 # Fungsi untuk membuat model regresi linier
@@ -20,19 +18,9 @@ def display_regression_equation(X, Y, model):
     regression_info = {'equation': equation, 'intercept': a, 'slope': b, 'r_value': r}
     return regression_info
 
-# Fungsi untuk menampilkan grafik linearitas
-def display_linear_plot(X, Y, model, label_X, label_Y):
-    fig, ax = plt.subplots()
-    ax.scatter(X, Y, color='blue', label='Data Asli')
-    ax.plot(X, model.predict(np.array(X).reshape(-1, 1)), color='red', label='Regresi Linier')
-    ax.set_xlabel(label_X)
-    ax.set_ylabel(label_Y)
-    ax.legend()
-    st.pyplot(fig)
-
 # Halaman aplikasi Streamlit
 def main():
-    st.title('Penentuan Grafik dan Persamaan Regresi Linearlitas')
+    st.title('Penentuan Persamaan Regresi Linearlitas')
 
     st.write('Masukkan data X dan Y untuk membuat model regresi linier')
 
