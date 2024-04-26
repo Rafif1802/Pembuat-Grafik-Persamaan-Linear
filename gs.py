@@ -1,45 +1,43 @@
 import streamlit as st
-import pandas as pd
 import numpy as np
-from sklearn.linear_model import LinearRegression
 
-# Fungsi untuk membuat model regresi linier
-def create_linear_regression_model(X, Y):
-    model = LinearRegression()
-    model.fit(np.array(X).reshape(-1, 1), Y)
-    return model
+# Fungsi untuk menghitung persamaan regresi linier dan koefisien korelasi
+def calculate_regression_equation(X, Y):
+    n = len(X)
+    sum_x = np.sum(X)
+    sum_y = np.sum(Y)
+    sum_xy = np.sum(X * Y)
+    sum_x_squared = np.sum(X**2)
 
-# Fungsi untuk menampilkan persamaan regresi linier dan nilai koefisien korelasi
-def display_regression_equation(X, Y, model):
-    a = model.intercept_
-    b = model.coef_[0]
-    r = model.score(np.array(X).reshape(-1, 1), Y)  # Koefisien korelasi
+    # Menghitung koefisien regresi
+    b = (n * sum_xy - sum_x * sum_y) / (n * sum_x_squared - sum_x**2)
+    a = (sum_y - b * sum_x) / n
+
+    # Menghitung koefisien korelasi
+    r = (n * sum_xy - sum_x * sum_y) / np.sqrt((n * sum_x_squared - sum_x**2) * (n * np.sum(Y**2) - np.sum(Y)**2))
+
     equation = f'y = {a:.2f} + {b:.2f}x'
     regression_info = {'equation': equation, 'intercept': a, 'slope': b, 'r_value': r}
     return regression_info
 
 # Halaman aplikasi Streamlit
 def main():
-    st.title('Penentuan Grafik dan Persamaan Regresi Linearlitas')
+    st.title('Penentuan Persamaan Regresi Linearlitas')
 
-    st.write('Masukkan data X dan Y untuk membuat model regresi linier')
+    st.write('Masukkan data X dan Y untuk menghitung persamaan regresi linier')
 
     # Input data X dan Y dari pengguna
     X_input = st.text_input('Masukkan nilai X (pisahkan dengan koma jika lebih dari satu):').strip()
     Y_input = st.text_input('Masukkan nilai Y (pisahkan dengan koma jika lebih dari satu):').strip()
 
-    label_X = st.text_input('Masukkan label untuk sumbu X:')
-    label_Y = st.text_input('Masukkan label untuk sumbu Y:')
+    if X_input and Y_input:
+        X = np.array([float(x) for x in X_input.split(',')])
+        Y = np.array([float(y) for y in Y_input.split(',')])
 
-    if X_input and Y_input and label_X and label_Y:
-        X = [float(x) for x in X_input.split(',')]
-        Y = [float(y) for y in Y_input.split(',')]
-
-        # Membuat model regresi linier
-        model = create_linear_regression_model(X, Y)
+        # Menghitung persamaan regresi linier dan koefisien korelasi
+        regression_info = calculate_regression_equation(X, Y)
 
         # Menampilkan persamaan regresi linier, nilai slope (b), nilai intercept (a), dan nilai koefisien korelasi (r)
-        regression_info = display_regression_equation(X, Y, model)
         st.markdown('### Persamaan Regresi Linier:')
         st.markdown(f'```{regression_info["equation"]}```', unsafe_allow_html=True)
 
