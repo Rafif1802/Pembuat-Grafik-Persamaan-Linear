@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import io
+from sklearn.linear_model import LinearRegression
 
 # Fungsi untuk membuat model regresi linier
 def create_linear_regression_model(X, Y):
@@ -37,9 +37,6 @@ def main():
 
         # Membuat model regresi linier
         model = create_linear_regression_model(X, Y)
-
-        # Menampilkan grafik linearitas
-        display_linear_plot(X, Y, model, label_X, label_Y)
 
         # Menampilkan persamaan regresi linier, nilai slope (b), nilai intercept (a), dan nilai koefisien korelasi (r)
         regression_info = display_regression_equation(X, Y, model)
