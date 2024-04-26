@@ -9,7 +9,7 @@ def create_linear_regression_model(X, Y):
     model.fit(np.array(X).reshape(-1, 1), Y)
     return model
 
-# Fungsi untuk menampilkan persamaan regresi linier dan nilai koefisien korelasiss
+# Fungsi untuk menampilkan persamaan regresi linier dan nilai koefisien korelasi
 def display_regression_equation(X, Y, model):
     a = model.intercept_
     b = model.coef_[0]
@@ -20,7 +20,7 @@ def display_regression_equation(X, Y, model):
 
 # Halaman aplikasi Streamlit
 def main():
-    st.title('Penentuan Persamaan Regresi Linearlitas')
+    st.title('Penentuan Grafik dan Persamaan Regresi Linearlitas')
 
     st.write('Masukkan data X dan Y untuk membuat model regresi linier')
 
