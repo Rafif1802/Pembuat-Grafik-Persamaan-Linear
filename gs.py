@@ -28,17 +28,17 @@ def main():
     menu = st.sidebar.selectbox("Menu", ('Utama', 'Perkenalan Kelompok'))
 
     if menu == 'Utama':
-        st.write('Masukkan data X dan Y serta nama variabel untuk menghitung persamaan regresi linier')
+        st.write('Masukkan data X dan Y dalam bentuk tabel dengan dua kolom.')
 
-        # Input data X dan Y dari pengguna
-        X_input = st.text_input('Masukkan nilai X (pisahkan dengan koma jika lebih dari satu):').strip()
-        Y_input = st.text_input('Masukkan nilai Y (pisahkan dengan koma jika lebih dari satu):').strip()
+        # Input data X dan Y dari pengguna dalam bentuk tabel
+        data_input = st.text_area('Masukkan nilai X dan Y (pisahkan nilai X dan Y dengan koma, setiap pasangan nilai di baris baru):', height=150)
         var_name_x = st.text_input('Masukkan nama variabel untuk X:', 'x').strip()
         var_name_y = st.text_input('Masukkan nama variabel untuk Y:', 'y').strip()
 
-        if X_input and Y_input:
-            X = np.array([float(x) for x in X_input.split(',')])
-            Y = np.array([float(y) for y in Y_input.split(',')])
+        if data_input:
+            data_lines = data_input.split('\n')
+            X = np.array([float(line.split(',')[0].strip()) for line in data_lines if line])
+            Y = np.array([float(line.split(',')[1].strip()) for line in data_lines if line])
 
             # Menghitung persamaan regresi linier dan koefisien korelasi
             regression_info = calculate_regression_equation(X, Y, var_name_x, var_name_y)
