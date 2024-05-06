@@ -23,13 +23,16 @@ def calculate_regression_equation(X, Y):
 # Halaman aplikasi Streamlit
 def main():
     st.title('Penentuan Persamaan Regresi Linearlitas')
-    st.subheader('Kelompok 3 (1E-PMIP)')
-    st.write('Anggota:')
-    st.write('1. Dhika Nurafliansyah (2320517)')
-    st.write('2. Herni Khairunisa (2320528)')
-    st.write('3. Ibnu Rafif (2320530)')
-    st.write('4. Khaira Mutya Arrahman (2320533)')
-    st.write('5. Marsya Kaila Avridita Mulyono (2320535)')
+
+    # Membuat sidebar
+    with st.sidebar:
+        st.subheader('Kelompok 3 (1E-PMIP)')
+        st.write('Anggota:')
+        st.write('1. Dhika Nurafliansyah (2320517)')
+        st.write('2. Herni Khairunisa (2320528)')
+        st.write('3. Ibnu Rafif (2320530)')
+        st.write('4. Khaira Mutya Arrahman (2320533)')
+        st.write('5. Marsya Kaila Avridita Mulyono (2320535)')
 
     st.write('Masukkan data X dan Y untuk menghitung persamaan regresi linier')
 
@@ -59,4 +62,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
