@@ -27,7 +27,7 @@ def main():
     # Membuat sidebar dengan pilihan menu
     menu = st.sidebar.radio("Menu", ('Utama', 'Perkenalan Kelompok'))
 
-    if menu == 'Utama':
+    if menu == 'Aplikasi Penentu Persamaan Regresi':
         st.write('Masukkan data X dan Y untuk menghitung persamaan regresi linier')
 
         # Input data X dan Y dari pengguna
