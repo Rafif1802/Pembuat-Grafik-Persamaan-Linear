@@ -24,10 +24,10 @@ def calculate_regression_equation(X, Y):
 def main():
     st.title('Penentuan Persamaan Regresi Linearlitas')
 
-    # Membuat sidebar dengan pilihan menu
-    menu = st.sidebar.radio("Menu", ('Utama', 'Perkenalan Kelompok'))
+    # Mengubah radio menjadi select box di sidebar
+    menu = st.sidebar.selectbox("Menu", ('Utama', 'Perkenalan Kelompok'))
 
-    if menu == 'Aplikasi Penentu Persamaan Regresi':
+    if menu == 'Utama':
         st.write('Masukkan data X dan Y untuk menghitung persamaan regresi linier')
 
         # Input data X dan Y dari pengguna
