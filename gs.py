@@ -1,3 +1,26 @@
+import streamlit as st
+import numpy as np
+
+# Fungsi untuk menghitung persamaan regresi linier dan koefisien korelasi
+def calculate_regression_equation(X, Y):
+    n = len(X)
+    sum_x = np.sum(X)
+    sum_y = np.sum(Y)
+    sum_xy = np.sum(X * Y)
+    sum_x_squared = np.sum(X**2)
+
+    # Menghitung koefisien regresi
+    b = (n * sum_xy - sum_x * sum_y) / (n * sum_x_squared - sum_x**2)
+    a = (sum_y - b * sum_x) / n
+
+    # Menghitung koefisien korelasi
+    r = (n * sum_xy - sum_x * sum_y) / np.sqrt((n * sum_x_squared - sum_x**2) * (n * np.sum(Y**2) - np.sum(Y)**2))
+
+    equation = f'y = {a:.2f} + {b:.2f}x'
+    regression_info = {'equation': equation, 'intercept': a, 'slope': b, 'r_value': r}
+    return regression_info
+
+# Halaman aplikasi Streamlit
 def main():
     st.title('Penentuan Persamaan Regresi Linearlitas')
 
@@ -39,3 +62,6 @@ def main():
         st.write('3. Ibnu Rafif (2320530)')
         st.write('4. Khaira Mutya Arrahman (2320533)')
         st.write('5. Marsya Kaila Avridita Mulyono (2320535)')
+
+if __name__ == '__main__':
+    main()
