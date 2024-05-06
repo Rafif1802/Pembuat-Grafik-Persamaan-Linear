@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 
 # Fungsi untuk menghitung persamaan regresi linier dan koefisien korelasi
-def calculate_regression_equation(X, Y):
+def calculate_regression_equation(X, Y, var_name_x='x', var_name_y='y'):
     n = len(X)
     sum_x = np.sum(X)
     sum_y = np.sum(Y)
@@ -16,30 +16,32 @@ def calculate_regression_equation(X, Y):
     # Menghitung koefisien korelasi
     r = (n * sum_xy - sum_x * sum_y) / np.sqrt((n * sum_x_squared - sum_x**2) * (n * np.sum(Y**2) - np.sum(Y)**2))
 
-    equation = f'y = {a:.2f} + {b:.2f}x'
+    equation = f'{var_name_y} = {a:.2f} + {b:.2f}{var_name_x}'
     regression_info = {'equation': equation, 'intercept': a, 'slope': b, 'r_value': r}
     return regression_info
 
 # Halaman aplikasi Streamlit
 def main():
-    st.title('Penentuan Persamaan Regresi Linearlitas')
+    st.title('Penentuan Persamaan Regresi Linearitas')
 
     # Mengubah radio menjadi select box di sidebar
     menu = st.sidebar.selectbox("Menu", ('Utama', 'Perkenalan Kelompok'))
 
     if menu == 'Utama':
-        st.write('Masukkan data X dan Y untuk menghitung persamaan regresi linier')
+        st.write('Masukkan data X dan Y serta nama variabel untuk menghitung persamaan regresi linier')
 
         # Input data X dan Y dari pengguna
         X_input = st.text_input('Masukkan nilai X (pisahkan dengan koma jika lebih dari satu):').strip()
         Y_input = st.text_input('Masukkan nilai Y (pisahkan dengan koma jika lebih dari satu):').strip()
+        var_name_x = st.text_input('Masukkan nama variabel untuk X:', 'x').strip()
+        var_name_y = st.text_input('Masukkan nama variabel untuk Y:', 'y').strip()
 
         if X_input and Y_input:
             X = np.array([float(x) for x in X_input.split(',')])
             Y = np.array([float(y) for y in Y_input.split(',')])
 
             # Menghitung persamaan regresi linier dan koefisien korelasi
-            regression_info = calculate_regression_equation(X, Y)
+            regression_info = calculate_regression_equation(X, Y, var_name_x, var_name_y)
 
             # Menampilkan persamaan regresi linier, nilai slope (b), nilai intercept (a), dan nilai koefisien korelasi (r)
             st.markdown('### Persamaan Regresi Linier:')
