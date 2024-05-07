@@ -24,8 +24,8 @@ def calculate_regression_equation(X, Y, var_name_x='x', var_name_y='y'):
 def main():
     st.title('Penentuan Persamaan Regresi Linearitas')
 
-    # Mengubah radio menjadi select box di sidebar
-    menu = st.sidebar.selectbox("Menu", ('Utama', 'Perkenalan Kelompok'))
+    # Menambahkan opsi baru di select box
+    menu = st.sidebar.selectbox("Menu", ('Utama', 'Perkenalan Kelompok', 'Tentang Aplikasi'))
 
     if menu == 'Utama':
         st.write('Masukkan data X dan Y dalam bentuk tabel dengan dua kolom.')
@@ -65,5 +65,10 @@ def main():
         st.write('4. Khaira Mutya Arrahman (2320533)')
         st.write('5. Marsya Kaila Avridita Mulyono (2320535)')
 
+    elif menu == 'Tentang Aplikasi':
+        st.subheader('Tentang Aplikasi')
+        st.write('Aplikasi penentu persamaan linear ini dirancang untuk memudahkan pengguna dalam melakukan perhitungan dalam penentuan persamaan linear dan mengurangi kesalahan penempatan data saat menghitung secara manual. Pengguna dapat memilih menu kalkulator untuk dapat menghitung persamaan regresi linear, nilai slope (b), nilai intersept (a), dan nilai koefisien regresi korelasi (r).')
+
 if __name__ == '__main__':
     main()
+
