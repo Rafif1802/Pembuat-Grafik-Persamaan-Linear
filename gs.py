@@ -35,9 +35,6 @@ def main():
             background-color: {background_color};
             font-size: {font_size};
         }}
-        .css-18e3th9 {{
-            background-color: {background_color};
-        }}
         h1 {{
             font-size: {header_font_size};
         }}
