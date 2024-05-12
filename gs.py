@@ -26,11 +26,12 @@ def main():
 
     # CSS untuk mengubah warna latar belakang
     background_color = "#A60404"
-    font_size = "20px"  # Anda bisa menyesuaikan ukuran sesuai kebutuhan
+    font_size = "18px"  # Anda bisa menyesuaikan ukuran sesuai kebutuhan
     st.markdown(f"""
         <style>
         .stApp {{
             background-color: {background_color};
+            font-size: {font_size};
         }}
         </style>
         """, unsafe_allow_html=True)
