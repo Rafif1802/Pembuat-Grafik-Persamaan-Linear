@@ -24,9 +24,11 @@ def calculate_regression_equation(X, Y, var_name_x='x', var_name_y='y'):
 def main():
     st.title('Penentuan Persamaan Regresi Linearitas')
 
-    # CSS untuk mengubah warna latar belakang dan sidebar serta membesarkan font
+    # CSS untuk mengubah warna latar belakang, sidebar, dan ukuran font
     background_color = "#A60404"
-    font_size = "20px"  # Anda bisa menyesuaikan ukuran sesuai kebutuhan
+    font_size = "18px"  # Ukuran font untuk teks biasa
+    header_font_size = "24px"  # Ukuran font untuk header
+    subheader_font_size = "20px"  # Ukuran font untuk subheader
     st.markdown(f"""
         <style>
         .stApp {{
@@ -36,13 +38,19 @@ def main():
         .css-18e3th9 {{
             background-color: {background_color};
         }}
+        h1 {{
+            font-size: {header_font_size};
+        }}
+        h2 {{
+            font-size: {subheader_font_size};
+        }}
         </style>
         """, unsafe_allow_html=True)
 
     # Menambahkan opsi baru di select box
-    menu = st.sidebar.selectbox("Menu", ('Tentang Aplikasi', 'Kalkulator', 'Perkenalan Kelompok'))
+    menu = st.sidebar.selectbox("Menu", ('Utama', 'Perkenalan Kelompok', 'Tentang Aplikasi'))
 
-    if menu == 'Kalkulator':
+    if menu == 'Utama':
         st.write('Masukkan data X dan Y dalam bentuk tabel dengan dua kolom.')
 
         # Input data X dan Y dari pengguna dalam bentuk tabel
@@ -83,9 +91,8 @@ def main():
     elif menu == 'Tentang Aplikasi':
         st.subheader('Tentang Aplikasi')
         st.write('Aplikasi penentu persamaan linear ini dirancang untuk memudahkan pengguna dalam melakukan perhitungan dalam penentuan persamaan linear dan mengurangi kesalahan penempatan data saat menghitung secara manual. Pengguna dapat memilih menu kalkulator untuk dapat menghitung persamaan regresi linear, nilai slope (b), nilai intersept (a), dan nilai koefisien regresi korelasi (r).')
-        st.markdown('<style>.my-gif { width: 300px; height: auto; /* Menjaga rasio aspek */ }</style>', unsafe_allow_html=True)
-        st.markdown('<img src="https://jonmgomes.com/wp-content/uploads/2020/05/Comp_1.gif" alt="Deskripsi GIF" class="my-gif">', unsafe_allow_html=True)
+        st.markdown('<style>.my-gif { width: 300px; height: auto; }</style>', unsafe_allow_html=True)
+        st.markdown('<img src="https://jonmgomes.com/wp-content/uploads/2020/05/Comp_1.gif" class="my-gif">', unsafe_allow_html=True)
 
-        
 if __name__ == '__main__':
     main()
