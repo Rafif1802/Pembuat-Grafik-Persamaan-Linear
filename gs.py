@@ -82,8 +82,8 @@ def main():
 
     elif menu == 'Tentang Aplikasi':
         st.subheader('Tentang Aplikasi')
-        st.write('<img src="https://jonmgomes.com/wp-content/uploads/2020/05/Comp_1.gif" alt="Deskripsi GIF">')
         st.write('Aplikasi penentu persamaan linear ini dirancang untuk memudahkan pengguna dalam melakukan perhitungan dalam penentuan persamaan linear dan mengurangi kesalahan penempatan data saat menghitung secara manual. Pengguna dapat memilih menu kalkulator untuk dapat menghitung persamaan regresi linear, nilai slope (b), nilai intersept (a), dan nilai koefisien regresi korelasi (r).')
+        st.write('<img src="https://jonmgomes.com/wp-content/uploads/2020/05/Comp_1.gif" alt="Deskripsi GIF">')
 
 if __name__ == '__main__':
     main()
