@@ -40,9 +40,9 @@ def main():
         """, unsafe_allow_html=True)
 
     # Menambahkan opsi baru di select box
-    menu = st.sidebar.selectbox("Menu", ('Tentang Aplikasi', 'Utama', 'Perkenalan Kelompok'))
+    menu = st.sidebar.selectbox("Menu", ('Tentang Aplikasi', 'Kalkulator', 'Perkenalan Kelompok'))
 
-    if menu == 'Utama':
+    if menu == 'Kalkulator':
         st.write('Masukkan data X dan Y dalam bentuk tabel dengan dua kolom.')
 
         # Input data X dan Y dari pengguna dalam bentuk tabel
