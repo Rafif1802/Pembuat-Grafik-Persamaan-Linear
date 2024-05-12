@@ -32,17 +32,21 @@ def main():
     st.markdown(f"""
         <style>
         .stApp {{
-            background-color: {background_color};
-            font-size: {font_size};
+            background-color: {background_color} !important;
+            font-size: {font_size} !important;
+        }}
+        .st-bd {{
+            background-color: {background_color} !important;
         }}
         h1 {{
-            font-size: {header_font_size};
+            font-size: {header_font_size} !important;
         }}
         h2 {{
-            font-size: {subheader_font_size};
+            font-size: {subheader_font_size} !important;
         }}
         </style>
         """, unsafe_allow_html=True)
+
 
     # Menambahkan opsi baru di select box
     menu = st.sidebar.selectbox("Menu", ('Tentang Aplikasi', 'Kalkulator', 'Perkenalan Kelompok'))
