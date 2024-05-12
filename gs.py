@@ -24,20 +24,23 @@ def calculate_regression_equation(X, Y, var_name_x='x', var_name_y='y'):
 def main():
     st.title('Penentuan Persamaan Regresi Linearitas')
 
-    # CSS untuk mengubah warna latar belakang
+    # CSS untuk mengubah warna latar belakang dan sidebar serta membesarkan font
     background_color = "#A60404"
-    font_size = "20px"  # Anda bisa menyesuaikan ukuran sesuai kebutuhan
+    font_size = "18px"  # Anda bisa menyesuaikan ukuran sesuai kebutuhan
     st.markdown(f"""
         <style>
         .stApp {{
             background-color: {background_color};
             font-size: {font_size};
         }}
+        .css-18e3th9 {{
+            background-color: {background_color};
+        }}
         </style>
         """, unsafe_allow_html=True)
 
     # Menambahkan opsi baru di select box
-    menu = st.sidebar.selectbox("Menu", ('Tentang Aplikasi', 'Utama', 'Perkenalan Kelompok'))
+    menu = st.sidebar.selectbox("Menu", ('Tentang Aplikasi', 'Perkenalan Kelompok', 'Utama'))
 
     if menu == 'Utama':
         st.write('Masukkan data X dan Y dalam bentuk tabel dengan dua kolom.')
