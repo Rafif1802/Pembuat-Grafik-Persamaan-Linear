@@ -24,6 +24,16 @@ def calculate_regression_equation(X, Y, var_name_x='x', var_name_y='y'):
 def main():
     st.title('Penentuan Persamaan Regresi Linearitas')
 
+    # CSS untuk mengubah warna latar belakang
+    background_color = "#A60404"
+    st.markdown(f"""
+        <style>
+        .stApp {{
+            background-color: {background_color};
+        }}
+        </style>
+        """, unsafe_allow_html=True)
+
     # Menambahkan opsi baru di select box
     menu = st.sidebar.selectbox("Menu", ('Utama', 'Perkenalan Kelompok', 'Tentang Aplikasi'))
 
@@ -71,4 +81,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
